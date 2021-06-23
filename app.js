@@ -9,7 +9,6 @@ var usersRouter = require('./routes/users');
 var ShowWorkersRouter = require('./routes/employees/showEmps');
 var showWorkerRouter = require('./routes/employees/showEmp');
 var editEmpRouter = require('./routes/employees/editEmp');
-
 var createPersonnelRouter = require('./routes/employees/addEmp');
 var authRouter = require('./routes/login/authRouter');
 var deleteRouter = require('./routes/employees/deleteEmp');
@@ -34,6 +33,11 @@ app.use('/employees/show', ShowWorkersRouter);
 app.use('/employees/showOne/', showWorkerRouter);
 app.use('/employees/edit', editEmpRouter);
 app.use('/employees/delete', deleteRouter);
+
+// Gestion des Hotels
+const hotelManegment = require('./routes/Hotels/hotelManegment')
+app.use('/hotels', hotelManegment)
+
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
