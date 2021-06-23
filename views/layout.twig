@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    {% block stylesheets %}
+
+    <link rel='stylesheet' href='/stylesheets/style.css' /> 
+    <link rel='stylesheet' href='/stylesheets/authStyle.css' /> 
+    <link rel='stylesheet' href='/stylesheets/error.css' /> 
+    <link rel='stylesheet' href='/stylesheets/add_personnel.css' /> 
+        <link rel='stylesheet' href='/stylesheets/showEmp.css' /> 
+
+
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    {% endblock %}
+  </head>    <script src ='/javascripts/add_personnel.js'> </script>
+
+  <body>
+    {% block body %}
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+{% endblock %}
+  </body>
+  
+</html>

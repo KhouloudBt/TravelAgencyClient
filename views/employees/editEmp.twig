@@ -1,0 +1,39 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container">
+<table class="table table-striped table-striped">
+    
+ {% if (data) %}
+    <form method="post">
+ 
+                   <tr><td>Cin</td> <td><input name="cin" value={{data.cin}}/></td></tr>
+
+             <tr><td>First name</td> <td><input name="nom" value={{ data.nom}}/></td></tr>
+             <tr><td>last name</td> <td><input name="prenom" value={{ data.prenom}}/></td></tr>
+             <tr><td>Phone number</td><td><input name="telephone" value={{ data.telephone}}/></td></tr>
+             <tr> <td>Function</td><td><select class="form-control" name="id_role">
+            <option class="hidden"  selected disabled>Please select the role</option>                                                
+
+                     {% for role in roles %}                                                
+                    <option class="hidden"  value={{role.id_role}} >{{role.title}}</option>                                                
+                    {% endfor %}
+                    </select>
+             <tr><td>Gender</td><td><input name="sexe"  value={{data.sexe}}/></td></tr>
+             <tr><td> password:</td><td><input name="password" value={{ data.password}} type="password"/></td></tr>
+             <tr><td>Confirm Password:</td><td><input name="confirmPassword" value="" type="password"/></td></tr>
+
+
+        <tr><td></td>
+            <td>
+			<input type="submit" class="btn btn-success" name="Submit" value="Save" />
+            <button type="reset"  class="btn btn-dark" value="Reset">
+            Reset
+            </button> 
+        </td>
+        </tr>
+        </form>
+        </table>
+{% endif %}
+</div>
+{% endblock %}

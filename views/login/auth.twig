@@ -1,0 +1,35 @@
+{% extends 'layout.twig' %}
+<head>
+<title> Login</title>
+<link rel='stylesheet' href='/stylesheets/authStyle.css' /> 
+</head>
+
+{% block body %}
+<body>
+    <div id="login">
+     <div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <div class="fadeIn first">
+      <img src="/images/logo.png" id="icon" alt="User Icon" />
+      <h1>Welcome to Take A trip Agency</h1>
+    </div>
+
+    <form method="post">
+      <input type="text" id="cin" class="fadeIn second" name="cin" placeholder="cin">
+      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+      <input type="submit" class="fadeIn fourth btn btn-success" value="Log In">
+    </form>
+
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Go to the Site</a>
+    </div>
+
+  </div>
+</div>        
+    </div>
+</body>
+{% endblock %}
+
+
+          
