@@ -44,14 +44,16 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); /
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 
-app.use(session({
+var sess=session({
   genid: function(req) {
     return genuuid() 
   },
   secret: 'secret',
   resave: false,
   saveUninitialized: true
-}))
+})
+
+app.use(sess);
 
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));// catch 404 and forward to error handler
 app.use(function(req, res, next) {

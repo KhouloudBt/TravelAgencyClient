@@ -3,13 +3,11 @@ var router = express.Router();
 const fetch = require('node-fetch');
 const Bluebird = require('bluebird');
 var bcrypt = require('bcryptjs');
-const session = require('express-session');
 
 fetch.Promise = Bluebird;
 
 
-
-
+/*
 
 const RedirectLogin = (req, res , next)=>
 
@@ -39,9 +37,9 @@ function getEmp(cin)
   .then(res=> res.json()))
 }
 /* GET home page. */
-router.get('/', function(req, res, next) {
+/*router.get('/login', function(req, res, next) {
   
-  res.render('login/auth');
+  res.render('employees/addEmp');
 });
 
 router.post("/", async (req, res, next) => {
@@ -49,15 +47,15 @@ router.post("/", async (req, res, next) => {
   console.log(body);
   let emp = await getEmp(body.cin)
   
-console.log(emp);
+  console.log(emp);
   if (emp) {
     const validPassword = await bcrypt.compare(body.password, emp.password);
     if (validPassword ) {
       req.session.user= emp;
       if (emp.id_role==2)
       {
-        console.log(req.session.userId)
-        res.render('admin/dashboard');
+        console.log(req.session.user)
+        res.render('admin/dashboard', { title: 'Admin' });
       }
       else
       res.render('index', {title:emp.nom})
@@ -69,12 +67,42 @@ console.log(emp);
   }
 });
 
-router.get('/logout', RedirectLogin,function(req, res, next) {
+/*router.get('/logout', RedirectLogin,function(req, res, next) {
 console.log(req.session.user);
 req.session.destroy();
 console.log(req.session.user);
 RedirectLogin
 
-})
+})*/
+
+function getEmp(cin)
+{
+  return (fetch("http://localhost:3002/personnel/getbyCin/"+ cin)
+  .then(res=> res.json()))
+}
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('login/auth');
+});
+
+router.post("/", async (req, res, next) => {
+  const body = req.body;
+  console.log(body);
+  let emp = await getEmp(body.cin)
+  
+console.log(emp);
+  if (emp) {
+    const validPassword = await bcrypt.compare(body.password, emp.password);
+    if (validPassword) {
+      res.status(200).json({ message: "Valid password" });
+      res.render('index', {title:emp.nom})
+    } else {
+      res.status(400).json({ error: "Invalid Password" });
+    }
+  } else {
+    res.status(401).json({ error: "User does not exist" });
+  }
+});
+
 
 module.exports = router;

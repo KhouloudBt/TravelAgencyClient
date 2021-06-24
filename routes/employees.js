@@ -44,8 +44,6 @@ router.post('/add', function(req, res, next) {
 }});
 
 
-
-
 router.get('/delete/:cin', function(req, res, next) {
     fetch("http://localhost:3002/personnel/delete/"+ req.params.cin ,{
       method: 'delete',
@@ -59,7 +57,6 @@ router.get('/delete/:cin', function(req, res, next) {
   router.get('/edit/:cin', async function(req, res, next) {
     ;
      const listRoles=await getRoles();
-    // getRoles().then(res=>{console.log(res)});
      fetch("http://localhost:3002/personnel/getbyCin/"+ req.params.cin)
      .then(res=> res.json())
      .then(emp => {res.render('employees/editEmp',{ roles : listRoles, data:emp})})
