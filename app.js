@@ -8,11 +8,13 @@ var logger = require('morgan');
 var favicon = require('serve-favicon');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
 var emplRouter = require('./routes/employees');
 
 var authRouter = require('./routes/authRouter');
 var adminRouter = require('./routes/admin');
 var flightsRouter = require('./routes/flights');
+
 
 var app = express();
 
@@ -32,6 +34,11 @@ app.use('/login', authRouter);
 app.use('/employees', emplRouter);
 app.use('/flights', flightsRouter);
 app.use('/admin', adminRouter);
+
+// Gestion des Hotels
+const hotelManegment = require('./routes/Hotels/hotelManegment')
+app.use('/hotels', hotelManegment)
+
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
