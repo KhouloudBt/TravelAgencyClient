@@ -1,0 +1,95 @@
+<link rel='stylesheet' href='/stylesheets/add_personnel.css' />
+<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+{% block body %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Take a trip</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/showWorkers">Employees</a>
+                <a class="nav-item nav-link" href="#">Trips</a>
+                <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="alert alert-success" role="alert">
+        Added successfully
+    </div>
+    <div class="register">
+        <form method="post" id="f">
+            <div class="row">
+                <div class="col-md-3 register-left">
+                    <img src="/images/plane.png" alt=""/>
+                    <h1>Take a Trip Agency</h1>
+                </div>
+                <div class="col-md-9 register-right">
+                    <div class="tab-content" id="myTabContent">
+                        <h3 class="register-heading">Add a worker</h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="First Name *" value="" name="nom"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Last Name *" value="" name="prenom" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password *" value="" name="password" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" minlength="8" class="form-control" name="confirmPassword" placeholder="Confirm Password *" value="" />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" minlength="8" maxlength="8"  placeholder="Your CIN*" value="" name="cin" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" minlength="8" maxlength="8"  class="form-control" placeholder="Your Phone *" value="" name="telephone" />
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" name="id_role">
+                                        <option class="hidden"  selected disabled>Please select the role</option>
+
+                                        {% for role in roles %}
+
+                                            <option class="hidden"  value={{role.id_role}} >{{role.title}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <label class="radio inline">
+                                            <input type="radio" name="sexe"  value="M" >
+                                            <span> Male </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="sexe" value="F" checked>
+                                            <span>Female </span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <input type="submit" class="btnRegister"  value="Register"/>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+    </form>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+{% endblock %}

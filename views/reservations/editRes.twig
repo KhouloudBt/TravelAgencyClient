@@ -1,0 +1,32 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div class="container">
+        <table class="table table-striped table-striped">
+
+            {% if (data) %}
+            <form method="post">
+
+                <tr><td>Reservation Ref</td> <td><input name="resId" value={{data.resId}}/></td></tr>
+                <tr><td>Reservation date</td> <td><input name="dateRes" value={{ data.dateRes}}/></td></tr>
+                <tr><td>Start date</td> <td><input name="dateDebut" value={{ data.dateDebut}}/></td></tr>
+                <tr><td>End date</td><td><input name="dateFin" value={{ data.dateFin}}/></td></tr>
+                <tr><td>Client Ref</td><td><input name="clientId"  value={{data.clientId}}/></td></tr>
+                <tr><td> number of places</td><td><input name="nbPlaces" value={{ data.nbPlaces}} /></td></tr>
+                <tr><td>Confirmation</td><td><input name="confirmPassword" value={{ data.confirmation}}/></td></tr>
+                <tr><td>Voyage Ref</td><td><input name="confirmPassword" value={{ data.voyageId}} /></td></tr>
+
+
+                <tr><td></td>
+                    <td>
+                        <input type="submit" class="btn btn-success" name="Submit" value="Save" />
+                        <button type="reset"  class="btn btn-dark" value="Reset">
+                            Reset
+                        </button>
+                    </td>
+                </tr>
+            </form>
+        </table>
+        {% endif %}
+    </div>
+{% endblock %}

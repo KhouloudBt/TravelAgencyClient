@@ -1,0 +1,47 @@
+<head>
+    <link rel='stylesheet' href='/stylesheets/showEmp.css' />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+</head>
+{% block body %}
+
+<div class="container">
+    <table class="table table-striped table-striped" cellspacing=0>
+        <caption> {{data.resId}}</caption>
+
+        {% if (data) %}
+
+        <tr><td> Reservation Ref:</td> <td>{{ data.resId}}</td></tr>
+        <tr><td> Reservation date:</td> <td>{{ data.dateRes}}</td></tr>
+        <tr><td>Start date:</td> <td>{{ data.dateDebut}}</td></tr>
+        <tr><td>End date:</td><td>{{ data.dateFin}}</td></tr>
+        <tr><td>Client Ref:</td><td>{{ data.clientId}}</td></tr>
+        <tr><td>number of places:</td><td>{{ data.nbPlaces}}</td></tr>
+        <tr><td>Confirmation:</td><td>{{ data.confirmation}}</td></tr>
+        <tr><td>Voyage Ref:</td><td>{{ data.voyageId}}</td></tr>
+
+
+        <tr><td></td>
+            <td>
+                <div class="button">
+                    <a type="button"  class="btn btn-success" href="/reservations/edit/{{data.resId}}" >
+                        edit
+                    </a>
+                    <button type="button"  class="btn btn-dark"  href="/reservations/delete/{{data.resId}}">
+                        delete
+                    </button>
+                    <div>
+            </td>
+        </tr>
+
+    </table>
+    {% endif %}
+</div>
+
+<table>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src ='/javascripts/add_personnel.js'> </script>
+
+
+    {% endblock %}

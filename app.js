@@ -14,6 +14,12 @@ var createPersonnelRouter = require('./routes/employees/addEmp');
 var authRouter = require('./routes/login/authRouter');
 var deleteRouter = require('./routes/employees/deleteEmp');
 
+var ShowReservationsRouter = require('./routes/reservations/showReservations');
+var ShowResRouter = require('./routes/reservations/showRes');
+var editResRouter = require('./routes/reservations/editRes');
+var createResRouter = require('./routes/reservations/addRes');
+
+
 var app = express();
 
 // view engine setup
@@ -34,6 +40,12 @@ app.use('/employees/show', ShowWorkersRouter);
 app.use('/employees/showOne/', showWorkerRouter);
 app.use('/employees/edit', editEmpRouter);
 app.use('/employees/delete', deleteRouter);
+
+
+app.use('/reservations/show', ShowReservationsRouter);
+app.use('/reservations/showOne/', ShowResRouter);
+app.use('/reservations/edit/', editResRouter);
+app.use('/reservations/addRes', createResRouter);
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
