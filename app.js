@@ -1,18 +1,20 @@
 var createError = require('http-errors');
 var express = require('express');
+var session = require('express-session');
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var favicon = require('serve-favicon');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var ShowWorkersRouter = require('./routes/employees/showEmps');
-var showWorkerRouter = require('./routes/employees/showEmp');
-var editEmpRouter = require('./routes/employees/editEmp');
 
-var createPersonnelRouter = require('./routes/employees/addEmp');
-var authRouter = require('./routes/login/authRouter');
-var deleteRouter = require('./routes/employees/deleteEmp');
+var emplRouter = require('./routes/employees');
+
+var authRouter = require('./routes/authRouter');
+var adminRouter = require('./routes/admin');
+var flightsRouter = require('./routes/flights');
+
 
 var ShowReservationsRouter = require('./routes/reservations/showReservations');
 var ShowResRouter = require('./routes/reservations/showRes');
@@ -34,12 +36,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/employees/add', createPersonnelRouter);
 app.use('/login', authRouter);
-app.use('/employees/show', ShowWorkersRouter);
-app.use('/employees/showOne/', showWorkerRouter);
-app.use('/employees/edit', editEmpRouter);
-app.use('/employees/delete', deleteRouter);
+app.use('/employees', emplRouter);
+app.use('/flights', flightsRouter);
+app.use('/admin', adminRouter);
+
+// Gestion des Hotels
+const hotelManegment = require('./routes/Hotels/hotelManegment')
+app.use('/hotels', hotelManegment)
+
 
 
 app.use('/reservations/show', ShowReservationsRouter);
@@ -50,6 +55,17 @@ app.use('/reservations/addRes', createResRouter);
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
+
+var sess=session({
+  genid: function(req) {
+    return genuuid() 
+  },
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: true
+})
+
+app.use(sess);
 
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));// catch 404 and forward to error handler
 app.use(function(req, res, next) {

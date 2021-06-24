@@ -1,0 +1,52 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="row  flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+   {% embed 'admin/dashboard.twig' %}
+    {% endembed %}
+    </div>
+    <div class="col py-3">
+<div class="card ">
+	<div class="card-header">
+		Add new flight
+	</div>
+	<div class="container">
+		<form method="post" name="form1">
+			<div class="mb-3">
+			<label for="nom" class="form-label"> Nom </label>
+			<input type="text" class="form-control" name="nom" id="nom" placeholder=" oceanic 815 " />
+			</div>
+			<div class="mb-3">
+			<label for="capacite" class="form-label"> Capacite </label>
+			<input type="text" class="form-control" name="capacite" id="capacite" placeholder=" 1000 " />
+			</div>
+			<div class="mb-3">
+			<label for="dateDepart" class="form-label"> DateDepart </label>
+			<input type="datetime-local" class="form-control" value="2018-06-12T19:30"
+		min="2018-06-07T00:00" max="2025-06-14T00:00" name="dateDepart" id="dateDepart"  />
+			</div>
+			<div class="mb-3">
+			<label for="dateArrive" class="form-label"> DateArrive </label>
+			<input type="datetime-local" class="form-control" value="2018-06-12T19:30"
+		min="2018-06-07T00:00" max="2025-06-14T00:00" name="dateArrive" id="dateArrive"  />
+			</div>
+			<div class="  mb-3">
+			<label for="stat" class="form-label"> Stat </label>
+			<!--input type="text" class="form-control" name="stat" id="stat"  /-->
+			<select class="form-select" id="inputGroupSelect01" name="stat">
+				<option selected>Choose...</option>
+				<option value="out">Out</option>
+				<option value="in">IN</option>
+				<option value="delayed">Delayed</option>
+			</div>
+			<div class="  mb-3">
+			<input type="submit" class="btn btn-success" name="Submit" value="Add" />
+			</div>
+		</form>
+	</div>
+	</div>
+	</div>
+</div>
+</div>
+{% endblock %}

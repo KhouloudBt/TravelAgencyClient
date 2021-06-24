@@ -1,0 +1,38 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="row  flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+   {% embed 'admin/dashboard.twig' %}
+    {% endembed %}
+    </div>
+    <div class="col py-3">
+<div class="container">
+<table class="table table-striped table-striped">
+    
+ {% if (data) %}
+    <form method="post">
+ 
+                   <tr><td>Id</td> <td><input name="id" value={{ data.id}}/></td></tr>
+
+           <tr><td>Nom</td> <td><input name="nom" value={{ data.nom}}/></td></tr>
+        <tr><td>Capacite</td> <td><input name="capacite" value={{ data.capacite}}/></td></tr>
+             <tr><td>Date Depart</td><td><input name="dateDepart" value={{ data.dateDepart}}/></td></tr>
+             <tr><td>Date Arrive</td><td><input name="dateArrive" value={{ data.dateArrive}}/></td></tr>
+             <tr><td>Status</td><td><input name="stat" value={{ data.stat}}/></td></tr>
+        
+        <tr><td></td>
+            <td>
+			<input type="submit" class="btn btn-success" name="Submit" value="Edit" />
+           <button type="button"  class="btn btn-outline-danger btn-sm" >
+            delete
+            </button> 
+        </td>
+        </tr>
+        </form>
+        </table>
+{% endif %}
+</div>
+</div>
+</div>
+{% endblock %}
