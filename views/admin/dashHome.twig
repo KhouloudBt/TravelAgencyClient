@@ -1,0 +1,97 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="row  flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+   {% embed 'admin/dashboard.twig' %}
+    {% endembed %}
+    </div>
+    <div class="col py-3">
+    {{title}}
+    <div class="row row-cols-3 row-cols-md-3 g-3">
+    <div class="col">
+
+    <div class="profile-card-6">
+      <img
+        src="https://mdbootstrap.com/img/new/standard/city/041.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          This is a longer card with supporting text below as a natural lead-in to
+          additional content.
+        </p>
+      </div>
+    </div>
+
+    <div class="profile-card-6">
+    <img src="https://mdbootstrap.com/img/new/standard/city/041.jpg" class="img img-responsive">
+        <div class="profile-name">JOHN
+            <br>DOE</div>
+        <div class="profile-position">Lorem Ipsum Donor</div>
+        <div class="profile-overview">
+            <div class="profile-overview">
+                <div class="row text-center">
+                    <div class="col-xs-4">
+                        <h3>1</h3>
+                        <p>Rank</p>
+                    </div>
+                    <div class="col-xs-4">
+                        <h3>50</h3>
+                        <p>Matches</p>
+                    </div>
+                    <div class="col-xs-4">
+                        <h3>35</h3>
+                        <p>Goals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+  </div>
+  <div class="col">
+    <div class="card">
+      <img
+        src="https://mdbootstrap.com/img/new/standard/city/042.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+           This is a longer card with supporting text below as a natural lead-in to
+          additional content.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img
+        src="https://mdbootstrap.com/img/new/standard/city/044.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          This is a longer card with supporting text below as a natural lead-in to
+          additional content.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+            <p class="lead">An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single menu is be open at a time.</p>
+            <ul class="list-unstyled">
+                <li><h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile</li>
+            </ul>
+        
+</div>
+{% endblock %}
