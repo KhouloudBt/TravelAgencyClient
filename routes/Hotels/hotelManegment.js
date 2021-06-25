@@ -8,13 +8,13 @@ var search = require('./searchHotel');
 var getAll = require('./hotels');
 
 // Retrieve all hotels
-//router.use('/',getAll);
+router.use('/',getAll);
 // Create a new hotel
 router.use('/add',add);
 // Retrieve a single hotel with id
 //router.use('/:id',search);
 // Update a hotel with id
-//router.use('/:id',update);
+router.use('/update/',update);
 // Delete a hotel with id
 //router.use('/:id',remove);
 
