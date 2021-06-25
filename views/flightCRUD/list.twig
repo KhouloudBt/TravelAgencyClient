@@ -1,0 +1,48 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="row  flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+   {% embed 'admin/dashboard.twig' %}
+    {% endembed %}
+    </div>
+    <div class="col py-3">
+    <h3><a class="btn btn-secondary" href="/flights/add"><i class="fa fa-plus"></i> Add Trip</a> Trip List</h3>
+        <table class="table table-striped table-striped">
+            <thead>
+                <tr class="table_row table-primary">
+                    <th>Nom </th>
+                    <th>Capacite</th>
+                    <th>Date Depart</th>
+                    <th>Date Arrive</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr id="navigation">
+                {% for item in data %}
+                    <td>{{ item.nom}}</td>
+                    <td>{{ item.capacite}}</td>
+                    <td>{{ item.dateDepart}}</td>
+                    <td>{{ item.dateArrive}}</td>
+                    <td>{{ item.stat}}</td>
+                    <td>
+                    <a class="btn btn-outline-primary" href="/flights/showOne/{{item.id}}"> Consult</a>
+                    <!--button type="button"  class="btn btn-outline-primary  btn-sm" >
+                    consult
+                </button-->
+                <a class="btn btn-outline-success" href="/flights/edit/{{item.id}}"> 
+                <i class="fas fa-edit">Edit</i>
+                </a>
+                <a class="btn btn-outline-success" href="/flights/delete/{{item.id}}"> 
+                <i class="fas fa-edit">Delete</i>
+                </a>
+                </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
