@@ -51,7 +51,7 @@ router.post("/", async (req, res, next) => {
 
       if (emp.id_role==2)
       {
-        res.render('admin/dashboard', { title: 'Admin' });
+        res.render('admin/home', { title: 'Admin' });
       }
       else
       res.render('index', {title:emp.nom})

@@ -15,7 +15,6 @@ var authRouter = require('./routes/authRouter');
 var adminRouter = require('./routes/admin');
 var flightsRouter = require('./routes/flights');
 
-
 var app = express();
 
 var sess =session({

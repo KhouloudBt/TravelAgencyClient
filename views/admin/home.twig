@@ -1,0 +1,75 @@
+{% extends 'layout.twig' %}
+<!-- {% if user %}-->
+
+<link rel='stylesheet' href='/stylesheets/adminHome.css' /> 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+{% block body %}
+<div class="row  flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+   {% embed 'admin/dashboard.twig' %}
+    {% endembed %}
+    </div>
+    <div class="col py-3">
+    {{title}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Reservations</h6>
+                    <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-green order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Employees</h6>
+                    <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>{{nbEmp}}</span></h2>                 
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-yellow order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Trips</h6>
+                    <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>{{nbTrips}}</span></h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-pink order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">This week</h6>
+                    <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
+                </div>
+            </div>
+        </div>
+	</div>
+  <div class="rocket">
+  <div class="col-md-3 register-left">
+  <div class="row">
+                       <div class="col"> <img src="/images/plane.png" alt="Rocket"/></div>
+                       <div class="col">  <h1>Take a Trip Agency</h1></div>
+                    </div>
+                    </div>
+                    </div>
+</div>
+            <p class="lead">An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single menu is be open at a time.</p> 
+            <ul class="list-unstyled">
+                <li><h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile</li>
+            </ul>
+        
+</div>
+{% endblock %}
+<!--{% else %}
+ {% embed 'login/auth.twig' %}
+    {% endembed %}-->
+
+{% endif %}
