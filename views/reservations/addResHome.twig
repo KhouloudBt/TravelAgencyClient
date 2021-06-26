@@ -1,0 +1,70 @@
+<head>
+    <link rel='stylesheet' href='/stylesheets/showEmp.css' />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+</head>
+{% block body %}
+    <div class="row  flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+        {% embed 'admin/dashboard.twig' %}
+        {% endembed %}
+    </div>
+    <div class="col py-3">
+
+
+        <div class="container">
+            <form method="post" name="form1">
+                <div class="mb-3">
+                    <label for="resId" class="form-label"> Reservation Ref </label>
+                    <input type="text" class="form-control" name="resId" id="resId" placeholder=" ref r0001 " />
+                </div>
+                <div class="mb-3">
+                    <label for="nbPlaces" class="form-label"> number of places </label>
+                    <input type="text" class="form-control" name="nbPlaces" id="nbPlaces" placeholder=" 10 " />
+                </div>
+                <div class="mb-3">
+                    <label for="clientId" class="form-label"> client Ref </label>
+                    <input type="text" class="form-control" name="clientId" id="clientId" placeholder=" ref c0001 " />
+                </div>
+                <div class="mb-3">
+                    <label for="voyageId" class="form-label"> voyage Ref </label>
+                    <input type="text" class="form-control" name="voyageId" id="voyageId" placeholder=" ref v0001 " />
+                </div>
+                <div class="mb-3">
+                    <label for="dateRes" class="form-label"> reservation Date </label>
+                    <input type="datetime-local" class="form-control" value="2018-06-12T19:30"
+                           min="2018-06-07T00:00" max="2025-06-14T00:00" name="dateRes" id="dateRes"  />
+                </div>
+                <div class="mb-3">
+                    <label for="dateDebut" class="form-label"> start Date </label>
+                    <input type="datetime-local" class="form-control" value="2018-06-12T19:30"
+                           min="2018-06-07T00:00" max="2025-06-14T00:00" name="dateDebut" id="dateDebut"  />
+                </div>
+                <div class="mb-3">
+                    <label for="dateFin" class="form-label"> end Date </label>
+                    <input type="datetime-local" class="form-control" value="2018-06-12T19:30"
+                           min="2018-06-07T00:00" max="2025-06-14T00:00" name="dateFin" id="dateFin"  />
+                </div>
+                <div class="  mb-3">
+                    <label for="confirmation" class="form-label"> confirmation </label>
+                    <!--input type="text" class="form-control" name="stat" id="stat"  /-->
+                    <select class="form-select" id="inputGroupSelect01" name="confirmation">
+                        <option value="progress" selected>progress</option>
+                        <option value="confirmed">confirmed</option>
+                    </select>
+                </div>
+                <div class="  mb-3">
+                    <input type="submit" class="btn btn-success" name="Submit" value="Add" />
+                </div>
+            </form>
+
+        </div>
+
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src ='/javascripts/add_personnel.js'> </script>
+    </div>
+
+
+{% endblock %}
