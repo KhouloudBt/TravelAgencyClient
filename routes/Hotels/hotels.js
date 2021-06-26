@@ -9,7 +9,6 @@ fetch.Promise = Bluebird;
 
 router.get('/', function(req, res, next) {
   fetch("http://localhost:3002/hotels/")
-
 .then(res=>res.json())
 .then(data=> res.render('Hotels/hotels',{ data :data}))
 });

@@ -20,6 +20,10 @@ var employeesService = function() {
     }
 
     var redirectEdit= async function(req, res, message, alertClass) {
+        if (req.session.user != null)
+        adminService.redirectLogin(req,res);
+        else {
+        
         fetch("http://localhost:3002/personnel/delete/" + req.params.cin, {
             method: "delete",
             body: null,
@@ -30,7 +34,7 @@ var employeesService = function() {
         if (message)
         res.render('employees/editEmp',{ data :listRoles,message:message, alertClass: alertClass})
         else 
-        res.render('employees/editEmp',{ roles :listRoles, message:"null", alertClass: "null"})
+        res.render('employees/editEmp',{ roles :listRoles, message:"null", alertClass: "null"})}
     }
 
     var redirectList= async function(req, res) {
@@ -46,6 +50,16 @@ var employeesService = function() {
        
         ) }}
 
+        var redirectShowEmp= function(req, res, cin) {
+            console.log(req.session.user)
+            if (req.session.user != null)
+            adminService.redirectLogin(req,res);
+            else {
+                fetch("http://localhost:3002/personnel/getbyCin/" + cin)
+                .then((res) => res.json())
+                .then((data) => res.render("employees/showEmp", { data: data })); }}
+    
+
 
     
     return {
@@ -53,6 +67,7 @@ var employeesService = function() {
        ,getRoles: getRoles
        ,redirectEdit:redirectEdit
        ,redirectList:redirectList
+       ,redirectShowEmp:redirectShowEmp
 
     }
 }();

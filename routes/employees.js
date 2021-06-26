@@ -95,17 +95,19 @@ router.post("/edit/:id", function (req, res, next) {
     body: JSON.stringify(pers),
     headers: { "Content-Type": "application/json" },
   });
-  console.log("done");
+
+  
   fetch("http://localhost:3002/personnel/getAll")
     .then((res) => res.json())
     .then((data) => res.render("employees/showEmps", { data: data }));
 });
 
 router.get("/show/:cin", function (req, res, next) {
-  fetch("http://localhost:3002/personnel/getbyCin/" + req.params.cin)
-    .then((res) => res.json())
-    .then((data) => res.render("employees/showEmp", { data: data }));
+
+  
+  mployeesService.redirectShowEmp(req,res,req.params.cin);
 });
+
 
 router.get("/show", function (req, res, next) {
   fetch("http://localhost:3002/personnel/getAll")
