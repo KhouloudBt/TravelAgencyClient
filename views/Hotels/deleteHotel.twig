@@ -9,6 +9,17 @@
   </head>
 
 {% block body %}
+
+  <div class="row  flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+        {% embed 'admin/dashboard.twig' %}
+        {% endembed %}
+    </div>
+    <div class="col py-3">
+
+
+
+  
     <div class="container mt-5">
 
     <div class="alert alert-danger" role="alert">{{ hotel.name }} , {{ hotel.country }} , {{ hotel.city }} Are you sure you want to delete this hotel</div>
@@ -34,6 +45,8 @@
 
         </div>
       </div>
+    </div>
+    </div>    
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
