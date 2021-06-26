@@ -1,0 +1,274 @@
+
+    <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="/css/countries/niceCountryInput.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/countries/niceCountryInput.css">
+    <style>
+    body { font-family: 'Roboto'; background-color: #fafafa; }
+    h3 { margin: 1.5rem auto; }
+    .container { margin: 150px auto; }
+</style>
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="/css/fontawesome.min.css" />
+    <!-- http://api.jqueryui.com/datepicker/ -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="/css/templatemo-style.css">
+    <link rel="stylesheet" href="/css/stars.css">
+  </head>
+
+{% block body %}
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+
+
+
+      <div class="container tm-mt-big tm-mb-big">
+
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+
+          <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="tm-block-title d-inline-block">UPDATE Hotel {{ hotel.name }}</h2>
+
+
+              </div>
+
+            </div>
+            <div class="row tm-edit-product-row">
+         
+              <div class="col-xl-6 col-lg-6 col-md-12">
+    <div >
+        <img class="tm-product-img-dummy mx-auto" src="img/{{ hotel.photo }}" alt="" style="width: 100%; height:auto;">
+  </div>
+
+                <form role="form" method="post" action="" class="tm-edit-product-form">
+
+
+                  <div class="form-group mb-3">
+                    <label
+                      for="name"
+                      >
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      class="form-control validate"
+                      value="{{ hotel.name }}"
+                      required>
+                  </div>
+                  <div class="form-group mb-3">
+                    <label
+                      for="description"
+                      >URL</label
+                    >
+                    <textarea
+                      id="webSite"
+                      name="webSite"
+                      class="form-control validate"
+                      rows="5"
+                    >{{ hotel.webSite }}</textarea>
+                  </div> 
+                  <div class="form-group mb-3">
+                    <label
+                      for="category"
+                      >Country</label
+                    >
+              <div class="niceCountryInputSelector" data-selectedcountry="{{hotel.country}}" data-showspecial="false" data-showflags="true" data-i18nall="All selected"
+            data-i18nnofilter="No selection" data-i18nfilter="Filter" data-onchangecallback="onChangeCallback" />
+           
+        </div>
+
+                  </div>
+                  <div class="form-group mb-3">
+                    <label
+                      for="City"
+                      >City</label
+                    >
+                        <input
+                      id="city"
+                      name="city"
+                      type="text"
+                      class="form-control validate"
+                              value="{{ hotel.city }}"
+                      required>
+                  </div>                  
+
+ <input type="text" value="TN" name="country" hidden="true" id="cnt" >
+                  <div class="row">
+                      <div class="form-group mb-3 col-xs-12 col-sm-6">
+                          <label
+                            for="expire_date"
+                            >Phone
+                          </label>
+                          <input
+                            id="phone"
+                            name="phone"
+                            type="text"
+                            class="form-control validate"
+                                    value="{{ hotel.phone }}"
+                            data-large-mode="true">
+                        </div>
+                        <div class="form-group mb-3 col-xs-12 col-sm-6">
+                          <label
+                            for="stock"
+                            >allInclusive Price
+                          </label>
+                          <input
+                            id="allInclusive"
+                            name="allInclusive"
+                            type="number"
+                            class="form-control validate"
+                                    value="{{ hotel.allInclusive }}"
+                            >
+                        </div>                        
+                  </div>
+                  
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+                <div class="tm-product-img-dummy mx-auto">
+                  <i
+                    class="fas fa-cloud-upload-alt tm-upload-icon"
+                    onclick="document.getElementById('fileInput').click();"
+                  ></i>
+                </div>
+                <div class="custom-file mt-3 mb-3">
+                  <input   name="photo" id="fileInput" type="file" style="display:none;" />
+                  <input
+
+                    type="button"
+                    class="btn btn-primary btn-block mx-auto"
+                    value="UPLOAD HOTEL IMAGE"
+                    onclick="document.getElementById('fileInput').click();"
+                  />
+                </div>                      
+                <div class="form-group mb-3">
+                <div>
+                          <label
+                            for="stars"
+                            >STARS
+                          </label>
+                     </div>     
+              <div class="stars" id="stars">
+         
+                <input type="radio" id="star5" name="stars" value="5"   
+                   {% if hotel.stars == 5 %} 
+                    checked 
+                   {% endif %} />
+                <label for="star5" title="perfect">5 stars</label>
+
+                <input type="radio" id="star4" name="stars" value="4"  
+                    {% if hotel.stars == 4 %} 
+                    checked 
+                    {% endif %}  />
+                <label for="star4" title="good">4 stars</label>
+
+                <input type="radio" id="star3" name="stars" value="3"   
+                    {% if hotel.stars == 3 %} 
+                    checked 
+                    {% endif %}   />
+                <label for="star3" title="mid">3 stars</label>
+
+                <input type="radio" id="star2" name="stars" value="2"   
+                   {% if hotel.stars == 2 %} 
+                    checked 
+                    {% endif %}  />
+                <label for="star2" title="bad">2 stars</label>
+
+                <input type="radio" id="star1" name="stars" value="1"  
+                   {% if hotel.stars == 1 %} 
+                    checked 
+                   {% endif %} />
+                <label for="star1" title="terrible">1 star</label>
+
+              </div> 
+                        </div>
+<br> 
+<br>
+                  <div class="row">
+                  <div class="form-group mb-3">
+                        <label
+                            for="stock"
+                            >Couple Night Price
+                          </label>
+                          <input
+                            id="roomCouple"
+                            name="roomCouple"
+                            type="number"
+                            class="form-control validate"
+                                    value="{{ hotel.roomCouple }}"
+                            >
+                        </div>                            
+                        <div class="form-group mb-3">            
+                         <label
+                            for="stock"
+                            >Night Price
+                          </label>
+                          <input
+                            id="roomSingle"
+                            name="roomSingle"
+                            type="number"
+                            class="form-control validate"
+                                   value="{{ hotel.roomSingle }}"
+                            >
+                        </div>
+                </div>     
+                </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Update Hotel Now</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        function onChangeCallback(ctr){
+            console.log("The country was changed: " + ctr);
+            //$("#selectionSpan").text(ctr);
+        }
+
+        $(document).ready(function () {
+            $(".niceCountryInputSelector").each(function(i,e){
+                new NiceCountryInput(e).init();
+            });
+        });
+    </script>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+{% endblock %}

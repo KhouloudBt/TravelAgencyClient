@@ -1,0 +1,39 @@
+
+    <head>
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="/css/fontawesome.min.css" />
+    <!-- http://api.jqueryui.com/datepicker/ -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="/css/templatemo-style.css">
+  </head>
+
+{% block body %}
+     
+  <div class="container tm-mt-big tm-mb-big">
+{% for h in data %}
+                <div class="card" style="width: 18rem; display: inline-flex; margin:15px;">
+                  <img class="card-img-top" src="img/{{h.photo}}" alt="Card image cap"  style="height:18rem;">
+                  <div class="card-body">
+                    <h5 >{{h.name}}</h5>
+                    <h5>{{h.country}}</h5>
+                    <h5>{{h.city}}</h5>
+                    <a href="{{h.webSite}}">{{h.webSite}}</a>
+                    <p class="card-text">{{h.stars}} Stars </p>
+                    {% set i = 1 %}
+                      {% for i in 1..h.stars %}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                      {% endfor %}
+                      <br>
+                      <br>
+                    <a href="#" class="btn btn-primary">$ Take the Trip $</a>
+
+             </div>
+        </div>
+  {% endfor %}  
+        </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+{% endblock %}

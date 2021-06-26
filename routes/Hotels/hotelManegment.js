@@ -6,16 +6,19 @@ var update = require('./updateHotel');
 var remove = require('./deleteHotel');
 var search = require('./searchHotel');
 var getAll = require('./hotels');
+var showHotels = require('./getAllHotels');
 
-// Retrieve all hotels
-//router.use('/',getAll);
+// Retrieve all hotels for admin
+router.use('/',getAll);
+// Retrieve all hotels for client
+router.use('/getAll',showHotels);
 // Create a new hotel
 router.use('/add',add);
 // Retrieve a single hotel with id
-//router.use('/:id',search);
+router.use('/hotel/',search);
 // Update a hotel with id
-//router.use('/:id',update);
+router.use('/update/',update);
 // Delete a hotel with id
-//router.use('/:id',remove);
+router.use('/delete/',remove);
 
 module.exports = router

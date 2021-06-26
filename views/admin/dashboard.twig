@@ -1,7 +1,6 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-{{title}}
  <div class="">
     <div class="row ">
         <div class=" bg-dark">
@@ -11,13 +10,15 @@
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-white align-middle px-0">
+                        <a href="/admin" class="nav-link text-white align-middle px-0">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                    <a href="/admin"  class="nav-link px-0 align-middle">
                             <i class="fs-4 text-white bi-speedometer2"></i> <span class="ms-1 d-none text-white  d-sm-inline">Dashboard</span> </a>
+                        <a href="#" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fs-4 text-white bi-speedometer2"></i> <span class="ms-1 d-none text-white  d-sm-inline">Trips</span> </a>
                         <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                             <li class="w-100">
                                 <a href="/flights/add" class="nav-link text-white px-0"> <span class="d-none d-sm-inline">Add</span></a>
@@ -57,6 +58,7 @@
                         </ul>
                     </li>
                     <li>
+<<<<<<< HEAD
                         <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="fs-4 text-white bi-people"></i> <span class="ms-1 text-white d-none d-sm-inline">Reservations</span> </a>
                         <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
@@ -68,6 +70,10 @@
                             </li>
 
                         </ul>
+=======
+                        <a href="#" class="nav-link px-0 align-middle">
+                        <i class="fs-4 text-white bi-people"></i> <span class="ms-1 d-none text-white d-sm-inline">Customers</span> </a>
+>>>>>>> 5b35ebde37b9473b72043e411680261f487d5055
                     </li>
                 </ul>
                 <hr>
@@ -83,14 +89,12 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+                        <li><a class="dropdown-item" href="/auth/logout">Sign out</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-    <!--div class="col py-3">
-            <h3>{{title}}</h3>
-    </div-->
+
     </div>
 </div>
 

@@ -1,53 +1,69 @@
 <head>
-    <link rel='stylesheet' href='/stylesheets/showEmp.css' />
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
- 
+	<link rel='stylesheet' href='/stylesheets/showEmp.css'/>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+
 </head>
 {% block body %}
-<div class="row  flex-nowrap">
-    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
-   {% embed 'admin/dashboard.twig' %}
-    {% endembed %}
-    </div>
-    <div class="col py-3">
+	<div class="row  flex-nowrap">
+		<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+			{% embed 'admin/dashboard.twig' %}{% endembed %}
+		</div>
+		<div class="col py-3">
+			<div class="container">
+				<table class="table table-striped table-striped" cellspacing="0">
+					<caption>{{data.nom}}
+						{{data.prenom}}</caption>
 
-<div class="container">
-<table class="table table-striped table-striped" cellspacing=0>
-  <caption>{{data.nom}} {{data.prenom}}</caption>
-    
- {% if (data) %}
-    
-             <tr><td> Cin:</td> <td>{{ data.cin}}</td></tr>
-             <tr><td> First Name</td> <td>{{ data.nom}}</td></tr>
-             <tr><td>Last name</td> <td>{{ data.prenom}}</td></tr>
-             <tr><td>Function</td><td>{{ data.role}}</td></tr>
-             <tr><td>Phone number</td><td>{{ data.telephone}}</td></tr>
-             <tr><td>Gender</td><td>{{ data.sexe}}</td></tr>
-        
-             <tr><td></td>
-              <td>
-               <div class="button">
-           <a type="button"  class="btn btn-success" href="/employees/edit/{{data.cin}}" >
-            edit
-          </a>
-            <button type="button"  class="btn btn-dark"  href="/employees/delete/{{data.cin}}">
-            delete
-            </button>
-           <div>
-        </td>
-        </tr>
-        
-        </table>
-{% endif %}
-</div>
+					{% if (data) %}
+						<tr>
+							<td>
+								Cin:</td>
+							<td>{{ data.cin}}</td>
+						</tr>
+						<tr>
+							<td>
+								First Name</td>
+							<td>{{ data.nom}}</td>
+						</tr>
+						<tr>
+							<td>Last name</td>
+							<td>{{ data.prenom}}</td>
+						</tr>
+						<tr>
+							<td>Function</td>
+							<td>{{ data.role}}</td>
+						</tr>
+						<tr>
+							<td>Phone number</td>
+							<td>{{ data.telephone}}</td>
+						</tr>
+						<tr>
+							<td>Gender</td>
+							<td>{{ data.sexe}}</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<div class="button">
+									<a type="button" class="btn btn-success" href="/employees/edit/{{data.cin}}">
+										edit
+									</a>
+									<button type="button" class="btn btn-dark" href="/employees/delete/{{data.cin}}">
+										delete
+									</button>
+									<div></td>
+								</tr>
+							</td>
+						</tr>
+					</table>
+				{% endif %}
+			</div>
+		</div>
+	</div>
 
-
-</div>
-</div>
-
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-    <script src ='/javascripts/add_personnel.js'> </script>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src='/javascripts/add_personnel.js'></script>
 
 
 {% endblock %}
