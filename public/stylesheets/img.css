@@ -1,0 +1,19 @@
+#leftImage {
+    top: 5%;
+    left: 0;
+    width: 20%;
+    min-width: 10%;
+    height: 100%;
+    position: fixed;
+    opacity: 0.5;
+}
+
+#rightImage {
+    top: 5%;
+    right: 0;
+    width: 20%;
+    min-width: 10%;
+    height: 100%;
+    position: fixed;
+    opacity: 0.5;
+}

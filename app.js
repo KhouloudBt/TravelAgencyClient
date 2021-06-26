@@ -19,6 +19,13 @@ var authRouter = require('./routes/auth');
 var adminRouter = require('./routes/admin');
 var flightsRouter = require('./routes/flights');
 
+
+
+var ReservationsRouter = require('./routes/reservations');
+
+
+
+
 var app = express();
 
 app.set('trust proxy', 1);
@@ -31,17 +38,7 @@ app.use(cookieSession({
   , secure: false
   , overwrite: false
 }));
-/*var sess =session({
-  /* genid: function(req) {
-     return genuuid() 
-   },
-   secret: 'secret',
-   resave: false,
-   
-   saveUninitialized: true
- })
-app.use(sess);*/
-// view engine setup
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'twig');
 app.use('/session', session);
@@ -61,6 +58,10 @@ app.use('/admin', adminRouter);
 // Gestion des Hotels
 const hotelManegment = require('./routes/Hotels/hotelManegment')
 app.use('/hotels', hotelManegment)
+
+
+
+app.use('/reservations', ReservationsRouter);
 
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
