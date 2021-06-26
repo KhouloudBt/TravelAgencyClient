@@ -10,6 +10,12 @@ router.get('/addRes', function(req, res, next) {
         .then(json =>  res.render('reservations/addRes', ));
 
 });
+router.get('/addResHome', function(req, res, next) {
+    fetch("http://localhost:3002/reservation/getbyResId/"+ req.params.Id)
+        .then(res=> res.json())
+        .then(json =>  res.render('reservations/addResHome', ));
+
+});
 
 router.post('/addRes', function(req, res, next) {
     const obj = JSON.parse(JSON.stringify(req.body));
