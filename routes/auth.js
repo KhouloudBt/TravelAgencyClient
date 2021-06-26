@@ -5,24 +5,12 @@ var bcrypt = require('bcryptjs');
 var session = require('express-session');
 var sess= require("../app");
 var cookieParser = require('cookie-parser');
+const adminService = require ('./services/adminService')  ;
+
+const adminRouter = require("./admin")
 const Bluebird = require('bluebird');
-/*var app=express();
-var session =session({
-  /* genid: function(req) {
-     return genuuid() 
-   },
-   secret: 'secret',
-   resave: false,
-   
-   saveUninitialized: true
- })
-app.use(session);*/
 
 fetch.Promise = Bluebird;
-
-
-
-//app.use(cookieParser('session'));
 
 
 function getEmp(cin)
@@ -30,7 +18,7 @@ function getEmp(cin)
   return (fetch("http://localhost:3002/personnel/getbyCin/"+ cin)
   .then(res=> res.json()))
 }
-/* GET home page. */
+
 router.get('/', function(req, res, next) {
 
   res.render('login/auth');
@@ -51,7 +39,8 @@ router.post("/", async (req, res, next) => {
 
       if (emp.id_role==2)
       {
-        res.render('admin/home', { title: 'Admin' });
+        adminService.redirectHome(req,res);
+
       }
       else
       res.render('index', {title:emp.nom})
@@ -66,14 +55,13 @@ router.get('/user', function(req, res, next) {
   return res.send(req.session.user);
 });
 
-var getCurrentUSer= ((req, res)=>{
-
-  return req.session.user;
-})
-
-
 router.get('/logout', function(req, res, next) {
-  req.session.destroy();
+  console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+
+  console.log(req.session.user);
+  req.session.user=null;
+  req.session.save();
+
   res.render('login/auth');
 });
 
