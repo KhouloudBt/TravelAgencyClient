@@ -10,9 +10,14 @@
 
 {% block body %}
     <div class="container mt-5">
+
+    <div class="{{classAlert}}" role="alert">{{message}}</div>
+    
       <div class="row tm-content-row">
+
         <div class="col-sm-12 col-md-12 col-lg-4 col-xl-10 tm-block-col">
           <div class="tm-bg-primary-dark tm-block tm-block-product-categories">
+
                       <h2 class="tm-block-title">HOTELS</h2>
             <div class="tm-product-table-container">
               <table class="table table-hover tm-table-small tm-product-table">
@@ -35,7 +40,7 @@
                     <td>{{h.country}}</td>
                     <td>{{h.city}}</td>
                     <td>
-                      <a href="/hotels/update/{{h.id}}"  class="tm-product-delete-link">
+                      <a href="/hotels/hotel/{{h.id}}"  class="tm-product-delete-link">
                      <i class="fas fa-file tm-product-delete-icon"></i>
                     </a>
                     </td> 
@@ -45,7 +50,7 @@
                     </a>
                     </td> 
                     <td>
-                      <a  class="tm-product-delete-link">
+                      <a  href="/hotels/delete/{{h.id}} "  class="tm-product-delete-link">
                         <i class="far fa-trash-alt tm-product-delete-icon"></i>
                       </a>
                     </td>
@@ -55,7 +60,7 @@
               </table>
             </div>
             <!-- table container -->
-            <a href="/Hotels/add" class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a>
+            <a href="/Hotels/add" class="btn btn-primary btn-block text-uppercase mb-3">Add new hotel</a>
           </div>
         </div>
       </div>

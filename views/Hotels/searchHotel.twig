@@ -1,0 +1,131 @@
+
+    <head>
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="/css/fontawesome.min.css" />
+    <!-- http://api.jqueryui.com/datepicker/ -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="/css/templatemo-style.css">
+    <link rel="stylesheet" href="/css/stars.css">
+  </head>
+
+{% block body %}
+
+</div>
+      <div class="container tm-mt-big tm-mb-big">
+
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+          <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+            <div class="row">
+              <div class="col-12">
+                <h1 class="tm-block-title d-inline-block"> {{ hotel.name }}</h1>
+              </div>
+
+              <div class="col-8 m-3">
+              <div class="tm-product-img-dummy mx-auto m-3 ">
+                   <img src="{{hotel.photo}}" alt="">
+                </div>
+
+            </div>
+            </div>
+            <div class="row tm-edit-product-row">
+              <div class="col-xl-6 col-lg-6 col-md-12">
+
+                <form  class="tm-edit-product-form">
+
+
+                  <div class="form-group mb-3">
+                    <h5> name : {{ hotel.name }} 
+                    </h5>
+                  </div>
+                  <div class="form-group mb-3">
+                    <h5>URL : {{hotel.webSite}}</h5  >
+                  </div> 
+                  <div class="form-group mb-3">
+                    <h5 >Country (short name) : </h5 >
+                            {{hotel.country}}
+                  </div>
+                  <div class="form-group mb-3">
+                    <h5>City : {{ hotel.city }}</h5>
+                  </div>                  
+
+ <input type="text" value="TN" name="country" hidden="true" id="cnt" >
+                  <div class="row">
+                      <div class="form-group mb-3 col-xs-12 col-sm-6">
+                          <h5 >Phone : {{ hotel.phone }}
+                          </h5>
+                        </div>
+                        <div class="form-group mb-3 col-xs-12 col-sm-6">
+                          <h5>allInclusive Price: {{ hotel.allInclusive }}</h5>
+                          </div>                        
+                  </div>
+                  
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+                                  
+                <div class="form-group mb-3">
+                <div>
+                          <h5>STARS </h5>
+                     </div>     
+              <div class="stars" id="stars">
+         
+                                <input type="radio" id="star5" name="stars" value="5"  readonly 
+                   {% if hotel.stars == 5 %} 
+                    checked 
+                   {% endif %} />
+                <label title="perfect">5 stars</label>
+
+                <input type="radio" id="star4" name="stars" value="4"  readonly="true"
+                    {% if hotel.stars == 4 %} 
+                    checked 
+                    {% endif %}  />
+                <label title="good">4 stars</label>
+
+                <input type="radio" id="star3" name="stars" value="3"   readonly
+                    {% if hotel.stars == 3 %} 
+                    checked 
+                    {% endif %}   />
+                <label title="mid">3 stars</label>
+
+                <input type="radio" id="star2" name="stars" value="2"   readonly
+                   {% if hotel.stars == 2 %} 
+                    checked 
+                    {% endif %}  />
+                <label title="bad">2 stars</label>
+
+                <input type="radio" id="star1" name="stars" value="1"  readonly
+                   {% if hotel.stars == 1 %} 
+                    checked 
+                   {% endif %} />
+                <label title="terrible">1 star</label>
+
+              </div> 
+                        </div>
+<br> 
+<br>
+                  <div class="row">
+                  <div class="form-group mb-3">
+                        <h5
+                           
+                            >Couple Night Price : {{ hotel.roomCouple }}
+                          </h5>
+                        </div>                            
+                        <div class="form-group mb-3">            
+                         <h5
+                           
+                            >Night Price :{{ hotel.roomSingle }}
+                          </h5>
+                        </div>
+                </div>     
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+{% endblock %}

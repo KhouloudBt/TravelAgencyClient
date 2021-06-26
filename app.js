@@ -1,6 +1,9 @@
 var createError = require('http-errors');
 var express = require('express');
 
+
+const fs = require("fs");
+
 var path = require('path');
 var logger = require('morgan');
 var favicon = require('serve-favicon');
@@ -69,5 +72,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'});
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(logger('dev'));
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;

@@ -12,10 +12,10 @@ router.use('/',getAll);
 // Create a new hotel
 router.use('/add',add);
 // Retrieve a single hotel with id
-//router.use('/:id',search);
+router.use('/hotel/',search);
 // Update a hotel with id
 router.use('/update/',update);
 // Delete a hotel with id
-//router.use('/:id',remove);
+router.use('/delete/',remove);
 
 module.exports = router
