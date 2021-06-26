@@ -1,95 +1,70 @@
-<link rel='stylesheet' href='/stylesheets/add_personnel.css' />
-<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+<head>
+    <link rel='stylesheet' href='/stylesheets/showEmp.css' />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+</head>
 {% block body %}
+    <div class="row  flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+        {% embed 'admin/dashboard.twig' %}
+        {% endembed %}
+    </div>
+    <div class="col py-3">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Take a trip</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/showWorkers">Employees</a>
-                <a class="nav-item nav-link" href="#">Trips</a>
-                <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </div>
+
+        <div class="container">
+            <form method="post" name="form1">
+                <div class="mb-3">
+                    <label for="resId" class="form-label"> Reservation Ref </label>
+                    <input type="text" class="form-control" name="resId" id="resId" placeholder=" ref r0001 " />
+                </div>
+                <div class="mb-3">
+                    <label for="nbPlaces" class="form-label"> number of places </label>
+                    <input type="text" class="form-control" name="nbPlaces" id="nbPlaces" placeholder=" 10 " />
+                </div>
+                <div class="mb-3">
+                    <label for="clientId" class="form-label"> client Ref </label>
+                    <input type="text" class="form-control" name="clientId" id="clientId" placeholder=" ref c0001 " />
+                </div>
+                <div class="mb-3">
+                    <label for="voyageId" class="form-label"> voyage Ref </label>
+                    <input type="text" class="form-control" name="voyageId" id="voyageId" placeholder=" ref v0001 " />
+                </div>
+                <div class="mb-3">
+                    <label for="dateRes" class="form-label"> reservation Date </label>
+                    <input type="datetime-local" class="form-control" value="2018-06-12T19:30"
+                           min="2018-06-07T00:00" max="2025-06-14T00:00" name="dateRes" id="dateRes"  />
+                </div>
+                <div class="mb-3">
+                    <label for="dateDebut" class="form-label"> start Date </label>
+                    <input type="datetime-local" class="form-control" value="2018-06-12T19:30"
+                           min="2018-06-07T00:00" max="2025-06-14T00:00" name="dateDebut" id="dateDebut"  />
+                </div>
+                <div class="mb-3">
+                    <label for="dateFin" class="form-label"> end Date </label>
+                    <input type="datetime-local" class="form-control" value="2018-06-12T19:30"
+                           min="2018-06-07T00:00" max="2025-06-14T00:00" name="dateFin" id="dateFin"  />
+                </div>
+                <div class="  mb-3">
+                    <label for="confirmation" class="form-label"> confirmation </label>
+                    <!--input type="text" class="form-control" name="stat" id="stat"  /-->
+                    <select class="form-select" id="inputGroupSelect01" name="confirmation">
+                        <option value="progress" selected>progress</option>
+                        <option value="confirmed">confirmed</option>
+                    </select>
+                </div>
+                <div class="  mb-3">
+                    <input type="submit" class="btn btn-success" name="Submit" value="Add" />
+                </div>
+            </form>
+
         </div>
-    </nav>
 
-    <div class="alert alert-success" role="alert">
-        Added successfully
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src ='/javascripts/add_personnel.js'> </script>
     </div>
-    <div class="register">
-        <form method="post" id="f">
-            <div class="row">
-                <div class="col-md-3 register-left">
-                    <img src="/images/plane.png" alt=""/>
-                    <h1>Take a Trip Agency</h1>
-                </div>
-                <div class="col-md-9 register-right">
-                    <div class="tab-content" id="myTabContent">
-                        <h3 class="register-heading">Add a worker</h3>
-                        <div class="row register-form">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name *" value="" name="nom"/>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name *" value="" name="prenom" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password *" value="" name="password" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" minlength="8" class="form-control" name="confirmPassword" placeholder="Confirm Password *" value="" />
-                                </div>
 
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" minlength="8" maxlength="8"  placeholder="Your CIN*" value="" name="cin" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" minlength="8" maxlength="8"  class="form-control" placeholder="Your Phone *" value="" name="telephone" />
-                                </div>
 
-                                <div class="form-group">
-                                    <select class="form-control" name="id_role">
-                                        <option class="hidden"  selected disabled>Please select the role</option>
-
-                                        {% for role in roles %}
-
-                                            <option class="hidden"  value={{role.id_role}} >{{role.title}}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <div class="maxl">
-                                        <label class="radio inline">
-                                            <input type="radio" name="sexe"  value="M" >
-                                            <span> Male </span>
-                                        </label>
-                                        <label class="radio inline">
-                                            <input type="radio" name="sexe" value="F" checked>
-                                            <span>Female </span>
-                                        </label>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <input type="submit" class="btnRegister"  value="Register"/>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-    </div>
-    </div>
-    </div>
-    </form>
-    </div>
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
 {% endblock %}

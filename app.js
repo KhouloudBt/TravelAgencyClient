@@ -16,10 +16,8 @@ var adminRouter = require('./routes/admin');
 var flightsRouter = require('./routes/flights');
 
 
-var ShowReservationsRouter = require('./routes/reservations/showReservations');
-var ShowResRouter = require('./routes/reservations/showRes');
-var editResRouter = require('./routes/reservations/editRes');
-var createResRouter = require('./routes/reservations/addRes');
+var ReservationsRouter = require('./routes/reservations');
+
 
 
 var app = express();
@@ -47,10 +45,8 @@ app.use('/hotels', hotelManegment)
 
 
 
-app.use('/reservations/show', ShowReservationsRouter);
-app.use('/reservations/showOne/', ShowResRouter);
-app.use('/reservations/edit/', editResRouter);
-app.use('/reservations/addRes', createResRouter);
+app.use('/reservations', ReservationsRouter);
+
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
