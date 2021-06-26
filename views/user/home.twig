@@ -1,0 +1,105 @@
+{% extends 'layout.twig' %}
+
+
+{% block body %}
+	<header class="header-area overlay">
+		<nav class="navbar navbar-expand-md navbar-dark">
+			<div class="container">
+				<a href="#" class="navbar-brand">TakeATrip Agency</a>
+
+				<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#main-nav">
+					<span class="menu-icon-bar"></span>
+					<span class="menu-icon-bar"></span>
+					<span class="menu-icon-bar"></span>
+				</button>
+
+				<div id="main-nav" class="collapse navbar-collapse d-flex">
+					<span class="">
+						<ul class="navbar-nav ml-auto">
+							<li>
+								<a href="#" class="nav-item nav-link active">Home</a>
+							</li>
+							<li>
+								<a href="#" class="nav-item nav-link">About Us</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="nav-item nav-link" data-toggle="dropdown">Services</a>
+								<div class="dropdown-menu">
+									<a href="#" class="dropdown-item">Reservations</a>
+									<a href="#" class="dropdown-item">Trips</a>
+									<a href="#" class="dropdown-item">Hotels</a>
+								</div>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="nav-item nav-link" data-toggle="dropdown">Portfolio</a>
+								<div class="dropdown-menu">
+									<a href="#" class="dropdown-item">Dropdown Item 1</a>
+									<a href="#" class="dropdown-item">Dropdown Item 2</a>
+									<a href="#" class="dropdown-item">Dropdown Item 3</a>
+									<a href="#" class="dropdown-item">Dropdown Item 4</a>
+									<a href="#" class="dropdown-item">Dropdown Item 5</a>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="nav-item nav-link">Contact</a>
+							</li>
+						</ul>
+					</span>
+				</div>
+			</div>
+		</nav>
+
+		<div class="banner">
+			<div class="container">
+				<h1>Take a trip with us !</h1>
+				<div class=" register-left">
+					<img src="/images/plane.png" alt=""/>
+				</div>
+				<a href="#content" class="button button-primary">Learn More</a>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section id="content" class="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+                    <div class="card">
+							<img src="/images/first.svg" class="card-img-top" alt="..."/>
+							<div class="card-body">
+								<h5 class="card-title titlestyle">Ready when you are</h5>
+								<p class="card-text">
+                                See where you can travel to right now and find the best deals across thousands of flights, hotels and car hire options
+								</p>
+							</div>
+						</div>
+                </div>
+					<div class="col-md-4">
+						<div class="card">
+							<img src="/images/second.svg" class="card-img-top" alt="..."/>
+							<div class="card-body">
+								<h5 class="card-title titlestyle">Plan with confidence</h5>
+								<p class="card-text">
+                                Stay one step ahead with flexible flight tickets, free hotel and car cancellation and the cleanest rooms around.
+								</p>
+							</div>
+						</div>
+					</div>
+                    <div class="col-md-4">
+						<div class="card">
+							<img src="/images/third.svg" class="card-img-top" alt="..."/>
+							<div class="card-body">
+								<h5 class="card-title titlestyle">Keep it simple
+                            </h5>
+								<p class="card-text">
+                            No hidden fees. No hidden charges. No funny business. With us, you’ll always know exactly where your money goes. So you can relax before your trip even begins.								</p>
+							</div>
+						</div>
+					</div>
+					
+					</div>
+				</div>
+			</section>
+		</main>
+	{% endblock %}
