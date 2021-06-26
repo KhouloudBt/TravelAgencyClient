@@ -3,12 +3,13 @@ var router = express.Router();
 const fetch = require('node-fetch');
 const Bluebird = require('bluebird');
 const { json } = require('express');
- 
+ router.use( express.static( "public" ) );
 fetch.Promise = Bluebird;
 /*
 var hotel ={ name:"",phone:'0',stars:0, webSite:"", country: "",city: "",roomCouple:0,roomSingle:0,allInclusive:0,photo: ""};
 
 */
+let hotel;
 
 	function getHotel(req,res) {
 	return	fetch("http://localhost:3002/hotels/"+req.params.id)

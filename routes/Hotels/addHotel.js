@@ -34,7 +34,7 @@ router.get('/', function(req, res, next) {
  //     this.photo=this.file;	
 });
 
-router.post('/', function(req, res, next) {
+router.post('/post', function(req, res, next) {
 //hotel=body
 console.log( req.body)
 fetch("http://localhost:3002/hotels/", {
@@ -52,7 +52,7 @@ router.post('/upload',upload.single('file'), (req, res) => {
 	console.log(req.file)
   if (!req.file) {
     console.log("No file received");
-    return res.redirect ('/hotels/add');
+    return res.redirect ('/hotels/add/');
 
   } else {
     console.log('file received');
